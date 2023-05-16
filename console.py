@@ -179,7 +179,7 @@ class HBNBCommand(cmd.Cmd):
             return
         else:
             print(objdict[object_key])
-    
+
     def do_destroy(self, args):
         """Usage: to destroy <class> <id> or <class>.destroy(<id>)
         Delete class instance of given id."""

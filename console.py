@@ -157,7 +157,7 @@ def do_create(self, args):
         print(new_object.id)
         storage.save()
 
-    def do_show(self, args):
+def do_show(self, args):
         """Usage: to show <class> <id> or <class>.show(<id>)
         Display string representation of a class instance of given id.
         """

@@ -43,3 +43,9 @@ Documented commands (type help <topic>):
 ========================================
 EOF  help  quit
 ```
+
+
+# AUTHORS :man:
+* Benjamin Ishimwe
+   * [Github](Ben6jamin)
+* Umwari Marlene 

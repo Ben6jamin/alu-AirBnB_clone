@@ -16,4 +16,4 @@ HBnB is a comprehensive web application that combines various components such as
 ---
 * `Run the console:` ./console.py
 * `Quit the console:` (hbnb) quit
-* `Display the help for a command:` (hbnb) help <command>
+* `Display the help for a command:` (hbnb) help <`command`>

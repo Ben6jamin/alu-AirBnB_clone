@@ -86,7 +86,7 @@ class HBNBCommand(cmd.Cmd):
         "Review"
     }
 
-  def emptyline(self):
+def emptyline(self):
         """
         Called when an empty line is entered.
         If this method is not overridden like this,

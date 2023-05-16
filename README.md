@@ -21,3 +21,16 @@ HBnB is a comprehensive web application that combines various components such as
 * `Destroy an object:`(hbnb) destroy <_class_> <_id_> or (hbnb) <_class_>.destroy(<_id_>)
 * `Show all objects, or all instances of a class:` (hbnb) all or (hbnb) all <_class_>
 * `Update an attribute of an object:` (hbnb) update <_class_> <_id_> <_attribute name_> "<_attribute value_>" or (hbnb) <_class_>.update(<_id_>, <_attribute name_>, "<_attribute value_>")
+
+---
+# Examples :telescope:
+---
+  interactive mode
+  ```
+  $ ./console.py
+(hbnb) help
+
+Documented commands (type help <topic>):
+========================================
+EOF  help  quit
+```

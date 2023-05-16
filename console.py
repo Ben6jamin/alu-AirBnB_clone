@@ -127,8 +127,7 @@ class HBNBCommand(cmd.Cmd):
         print("")
         return True
 
-
-def do_create(self, args):
+    def do_create(self, args):
         """
             Creates a new instance of a class,
             saves it (to the JSON file) and prints the id.
@@ -157,7 +156,7 @@ def do_create(self, args):
         print(new_object.id)
         storage.save()
 
-def do_show(self, args):
+    def do_show(self, args):
         """Usage: to show <class> <id> or <class>.show(<id>)
         Display string representation of a class instance of given id.
         """
@@ -180,6 +179,7 @@ def do_show(self, args):
             return
         else:
             print(objdict[object_key])
+    
     def do_destroy(self, args):
         """Usage: to destroy <class> <id> or <class>.destroy(<id>)
         Delete class instance of given id."""
@@ -241,6 +241,7 @@ def do_show(self, args):
             if arg_list[0] == obj.__class__.__name__:
                 count += 1
         print(count)
+    
     def do_update(self, args):
         """Usage: to update <class> <id> <attribute_name> <attribute_value> or
        <class>.update(<id>, <attribute_name>, <attribute_value>) or

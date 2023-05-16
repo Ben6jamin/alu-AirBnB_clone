@@ -47,5 +47,6 @@ EOF  help  quit
 
 # AUTHORS :man:
 * Benjamin Ishimwe
-   * [Github](https://github.com/Ben6jamin)
+   * [GITHUB](https://github.com/Ben6jamin)
 * Umwari Marlene 
+   * [GITHUB](https://github.com/M-Umwari)

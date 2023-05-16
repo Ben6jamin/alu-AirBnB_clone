@@ -241,7 +241,7 @@ class HBNBCommand(cmd.Cmd):
             if arg_list[0] == obj.__class__.__name__:
                 count += 1
         print(count)
-    
+
     def do_update(self, args):
         """Usage: to update <class> <id> <attribute_name> <attribute_value> or
        <class>.update(<id>, <attribute_name>, <attribute_value>) or

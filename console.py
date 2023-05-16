@@ -86,7 +86,7 @@ class HBNBCommand(cmd.Cmd):
         "Review"
     }
 
-def emptyline(self):
+    def emptyline(self):
         """
         Called when an empty line is entered.
         If this method is not overridden like this,
@@ -97,7 +97,7 @@ def emptyline(self):
         """
         pass
 
-   def default(self, arg):
+    def default(self, arg):
         """This is the default behavior for cmd module when input is invalid"""
         argdict = {
             "all": self.do_all,
@@ -157,7 +157,7 @@ def emptyline(self):
         print(new_object.id)
         storage.save()
 
-def do_show(self, args):
+    def do_show(self, args):
         """Usage: to show <class> <id> or <class>.show(<id>)
         Display string representation of a class instance of given id.
         """
@@ -180,7 +180,7 @@ def do_show(self, args):
             return
         else:
             print(objdict[object_key])
- def do_destroy(self, args):
+    def do_destroy(self, args):
         """Usage: to destroy <class> <id> or <class>.destroy(<id>)
         Delete class instance of given id."""
 
@@ -206,7 +206,7 @@ def do_show(self, args):
             del all_objects[object_key]
             storage.save()
 
-def do_all(self, args):
+    def do_all(self, args):
         """Usage: all or all <class> or <class>.all()
         Display string representations of all instances of given class
         If no class is specified, display all instantiated objects."""
@@ -231,7 +231,7 @@ def do_all(self, args):
                 object_list.append(str(all_objects[obj]))
         print(object_list)
 
-def do_count(self, args):
+    def do_count(self, args):
         """Usage: to count <class> or <class>.count()
         Retrieve number of instances of given class."""
 
@@ -241,7 +241,7 @@ def do_count(self, args):
             if arg_list[0] == obj.__class__.__name__:
                 count += 1
         print(count)
-  def do_update(self, args):
+    def do_update(self, args):
         """Usage: to update <class> <id> <attribute_name> <attribute_value> or
        <class>.update(<id>, <attribute_name>, <attribute_value>) or
        <class>.update(<id>, <dictionary>)

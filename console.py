@@ -128,7 +128,7 @@ class HBNBCommand(cmd.Cmd):
         return True
 
 
-    def do_create(self, args):
+def do_create(self, args):
         """
             Creates a new instance of a class,
             saves it (to the JSON file) and prints the id.

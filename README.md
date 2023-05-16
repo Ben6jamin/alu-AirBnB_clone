@@ -27,7 +27,7 @@ HBnB is a comprehensive web application that combines various components such as
 ---
   interactive mode
   ```
-  $ ./console.py
+  $ <font color="green">./console.py</font>
 (hbnb) help
 
 Documented commands (type help <topic>):

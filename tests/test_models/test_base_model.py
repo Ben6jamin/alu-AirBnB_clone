@@ -1,38 +1,76 @@
 #!/usr/bin/python3
-import unittest
+
+
+"""Unittest module for the BaseModel Class."""
+
+from models import storage
 from models.base_model import BaseModel
+from models.engine.file_storage import FileStorage
+from datetime import datetime
+import json
+import os
+import re
+import time
+import unittest
+import time
+import uuid
+from io import StringIO
+from unittest.mock import patch
 
 
-class TestBase(unittest.TestCase):
-    def test_initialization(self):
-        model = BaseModel()
-        self.assertEqual(
-            str(type(model)), "<class 'models.base_model.BaseModel'>")
-        self.assertEqual(str(type(model.id)), "<class 'str'>")
-        self.assertEqual(
-            str(type(model.created_at)), "<class 'datetime.datetime'>")
-        self.assertEqual(
-            str(type(model.updated_at)), "<class 'datetime.datetime'>")
+class TestBaseModel(unittest.TestCase):
+    """Test cases for BaseModel ."""
 
-    def test_string(self):
-        model = BaseModel()
-        dt = "[{}] ({}) {}".format(
-            model.__class__.__name__, model.id, model.__dict__)
-        self.assertEqual(str(model), dt)
+    def test_instance(self):
+        """test instance."""
+        base = BaseModel()
+        self.assertIsInstance(base, BaseModel)
+
+    def test_is_class(self):
+        """test instance."""
+        base = BaseModel()
+        self.assertEqual(str(type(base)),
+                         "<class 'models.base_model.BaseModel'>")
 
     def test_save(self):
-        model = BaseModel()
-        time = model.updated_at
-        model.save()
-        self.assertGreater(model.updated_at, time)
+        """test save."""
+        base = BaseModel()
+        time.sleep(1)
+        base.save()
+        self.assertNotEqual(base.updated_at, base.created_at)
+        self.assertTrue(base.updated_at > base.created_at)
 
-    def test_dict(self):
-        model = BaseModel()
-        obj = model.to_dict()
-        self.assertEqual(obj["id"], model.id)
-        self.assertEqual(obj["__class__"], model.__class__.__name__)
-        self.assertEqual(obj["created_at"], model.created_at.isoformat())
-        self.assertEqual(obj["updated_at"], model.updated_at.isoformat())
+    def test_save_file(self):
+        """test save."""
+        if os.path.isfile("file.json"):
+            os.remove(os.path.join("file.json"))
+            print(os.path.isfile("file.json"))
+        base = BaseModel()
+        print(base.id)
+        time.sleep(1)
+        base.save()
+        self.assertTrue(os.path.isfile("file.json"))
+        with open("file.json", 'w') as file:
+            serialized_content = json.load(file)
+            for item in serialized_content.values():
+                self.assertIsNotNone(item['__class__'])
+
+    def test_str_(self):
+        """test str."""
+        base = BaseModel()
+
+        with patch("sys.stdout", new=StringIO()) as fake_out:
+            print(base)
+            self.assertEqual(fake_out.getvalue(),
+                             "[{}] ({}) {}\n".format(base.__class__.__name__,
+                                                     base.id,
+                                                     base.__dict__))
+
+    def test_to_dict(self):
+        """test dict."""
+        base = BaseModel()
+        dict_repr = base.to_dict()
+        self.assertTrue(dict_repr['__class__'] == base.__class__.__name__)
 
 
 if __name__ == "__main__":

@@ -33,6 +33,16 @@ class TestBase(unittest.TestCase):
         self.assertEqual(obj["__class__"], model.__class__.__name__)
         self.assertEqual(obj["created_at"], model.created_at.isoformat())
         self.assertEqual(obj["updated_at"], model.updated_at.isoformat())
+        def test_reload(self):
+    storage = YourStorageClass()  # Replace YourStorageClass with your actual storage class
+    # Perform necessary setup for the storage object
+    
+    reloaded_data = storage.reload()
+    if reloaded_data is not None:
+        self.assertIsInstance(reloaded_data, dict)
+    else:
+        self.assertIsNone(reloaded_data)
+
 
 
 if __name__ == "__main__":
